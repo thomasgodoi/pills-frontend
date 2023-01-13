@@ -2,18 +2,31 @@ import React from "react";
 
 export default function PickYourOptionLine() {
 
+    // const phrases = [
+    //     "...So,",
+    //     "WYR:",
+    //     "Would you rather...",
+    //     "I'm not good at starting conversations, but",
+    //     "Yesterday I was at my church's cell group and this question was so good it left them speechless.",
+    //     "Morpheus HIMSELF said: 'Pick red, it tastes like strawberry' but I don't know...",
+    //     "I'm sorry for your little brother's death, but hear me out",
+    //     "Hey it's me, your therapist. Can you answer this question and send it to me? -Therapist",
+    //     "Bet Jay-Z's 99 problems aren't as difficult as this",
+    //     "Choose your destiny, literally. ",
+    //     "You chose red because you don't wanna see your mother die, I chose red because I like the strawberry flavour. We are not the same."
+    // ]
+
     const phrases = [
-        "...So,",
-        "WYR:",
-        "Would you rather...",
-        "I'm not good at starting conversations, but:",
-        "So, yesterday I was at my church's cell group and they couldn't decide between:",
-        "Morpheus HIMSELF said: 'Pick red, it tastes like strawberry' but idk.. WYR:",
-        "I'm sorry for your little brother's death, but would you rather:",
-        "Hi, it's your therapist, can you answer this question and send it to me? -Therapist",
-        "Bet Jay-Z's 99 problems aren't as difficult as deciding between:",
-        "Choose your destiny, literally... ",
-        "You chose red because you don't wanna see your mother die, I chose red because I like the strawberry flavour. We are not the same."
+        "Header 1",
+        "Header 2",
+        "Header 3",
+        "Header 4",
+        "Header 5",
+        "Header 6",
+        "Header 7",
+        "Header 8",
+        "Header 9",
+        "Header 10"
     ]
 
     const getRNG = () => {

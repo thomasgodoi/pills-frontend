@@ -1,28 +1,39 @@
 import React from "react";
-import logo from './logo.svg';
 
-import LeftButton from './Components/LeftButton/LeftButton';
-import RightButton from './Components/RightButton/RightButton';
+import LeftButton from "./Components/LeftButton/LeftButton";
+import RightButton from "./Components/RightButton/RightButton";
 import PickYourOptionLine from "./Components/PickYourOptionPhrase/PickYourOptionLine";
+import PerkDataService from "./Services/PerkDataService";
+
+import GitHub from "../src/Icons/Homepage/icon-github.svg";
 
 export default function Homepage() {
 
     return (
         <div className="App">
             <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-
                 <PickYourOptionLine />
                 <span style={{fontSize:'14px'}}>Would you rather:</span>
 
-                <div style={{display:'grid'}}>
-
-                    <LeftButton />
-                    ------------------------------------
-                    <RightButton />
-                    
+                <div className="pills-div">
+                    <div>
+                        <LeftButton />
+                        {/* <button>Take red pill</button> */}
+                        <button onClick={PerkDataService.alertRandomNumber}>Button 1</button>
+                    </div>
+                    <div>
+                        <RightButton />
+                        {/* <button>Take blue pill</button> */}
+                        <button onClick={PerkDataService.logRandomNumber}>Button 2</button>
+                    </div>
                 </div>
             </header>
+            <footer style={{height:"30px", background: "#3a3f4a", display:"flex", justifyContent:"center"}}>
+                <div style={{display: "flex", justifyContent: "space-around", alignItems: "center", width: "200px"}}>
+                    <img src={GitHub} width="20px" height="20px" alt="My GitHub" style={{cursor:"pointer"}}/>
+                    <img src={GitHub} width="20px" height="20px" alt="My GitHub" style={{cursor:"pointer"}}/>
+                </div>
+            </footer>
       </div>
     )
 }
