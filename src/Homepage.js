@@ -3,11 +3,19 @@ import React from "react";
 import LeftButton from "./Components/LeftButton/LeftButton";
 import RightButton from "./Components/RightButton/RightButton";
 import PickYourOptionLine from "./Components/PickYourOptionPhrase/PickYourOptionLine";
-import PerkDataService from "./Services/PerkDataService";
+import { PerkDataService } from "./Services/PerkDataService";
 
 import GitHub from "../src/Icons/Homepage/icon-github.svg";
 
 export default function Homepage() {
+
+    const tst = () => {
+        return (
+            PerkDataService.getTeste().then(response => {
+                console.log("response => ", response.data)
+            })
+        )        
+    }
 
     return (
         <div className="App">
@@ -19,7 +27,7 @@ export default function Homepage() {
                     <div>
                         <LeftButton />
                         {/* <button>Take red pill</button> */}
-                        <button onClick={PerkDataService.alertRandomNumber}>Button 1</button>
+                        <button onClick={tst}>Button 1</button>
                     </div>
                     <div>
                         <RightButton />

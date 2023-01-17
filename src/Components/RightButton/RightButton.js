@@ -40,7 +40,7 @@ export default function RightButton() {
             "The person you love the most will die in front of you, but you don't know when",
             "You instantly lose your car/house (or the most expensive thing you have) to the government",
             "Instantly have a $10k debt",
-            "Your SO will break up with you because of something bad you mistakenly did to them, but you don't know when",
+            "Your SO will take all your money and disappear one day",
             "Lose your job",
             "Can't have sex for one year",
             "Feel the worst physical pain you had again",
