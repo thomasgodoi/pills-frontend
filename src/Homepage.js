@@ -1,21 +1,50 @@
 import React from "react";
 
 import LeftButton from "./Components/LeftButton/LeftButton";
-import RightButton from "./Components/RightButton/RightButton";
+// import RightButton from "./Components/RightButton/RightButton";
 import PickYourOptionLine from "./Components/PickYourOptionPhrase/PickYourOptionLine";
-import { PerkDataService } from "./Services/PerkDataService";
+// import { PerkDataService } from "./Services/PerkDataService";
 
-import GitHub from "../src/Icons/Homepage/icon-github.svg";
+import Footer from "./Components/Footer/Footer";
 
 export default function Homepage() {
 
-    const tst = () => {
-        return (
-            PerkDataService.getTeste().then(response => {
-                console.log("response => ", response.data)
-            })
-        )        
-    }
+    // const getAllPerks = () => {
+    //     return (
+    //         PerkDataService.getAllPerks().then(response => {
+    //             console.log("response => ", response.data)
+    //         })
+    //     )        
+    // }
+
+    // const getPerkById = (perkId) => {
+    //     return (
+    //         PerkDataService.getPerkById(22).then(response => {
+    //             console.log("response => ", response.data)
+    //         })
+    //     )        
+    // }
+
+    // const getPositivePerks = () => {
+    //     return (
+    //         PerkDataService.getPositivePerks().then(response => {
+    //             console.log("response => ", response.data.content)
+    //         })
+    //     )        
+    // }
+
+    // const getNegativePerks = () => {
+    //     return (
+    //         PerkDataService.getNegativePerks().then(response => {
+    //             console.log("response => ", response.data.content)
+    //         })
+    //     )        
+    // }
+
+    // const sendPerksScore = (perkIdList, isWinner) => {
+    //     return PerkDataService.sendPerksScore([1,2,3], true);  
+    // }
+
 
     return (
         <div className="App">
@@ -27,21 +56,15 @@ export default function Homepage() {
                     <div>
                         <LeftButton />
                         {/* <button>Take red pill</button> */}
-                        <button onClick={tst}>Button 1</button>
                     </div>
-                    <div>
+                    {/* <div>
                         <RightButton />
-                        {/* <button>Take blue pill</button> */}
-                        <button onClick={PerkDataService.logRandomNumber}>Button 2</button>
-                    </div>
+                        <button>Take blue pill</button>
+                    </div> */}
                 </div>
             </header>
-            <footer style={{height:"30px", background: "#3a3f4a", display:"flex", justifyContent:"center"}}>
-                <div style={{display: "flex", justifyContent: "space-around", alignItems: "center", width: "200px"}}>
-                    <img src={GitHub} width="20px" height="20px" alt="My GitHub" style={{cursor:"pointer"}}/>
-                    <img src={GitHub} width="20px" height="20px" alt="My GitHub" style={{cursor:"pointer"}}/>
-                </div>
-            </footer>
+            <br/>
+            <Footer />
       </div>
     )
 }

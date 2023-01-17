@@ -1,0 +1,15 @@
+.description {
+    margin: 5px 10px 5px 0;
+}
+
+.tier {
+    color: white;
+    width: 25px;
+    /* border: 1px solid yellow; */
+    text-align: center;
+}
+
+.perk-list {
+    display: flex;
+    justify-content: space-between;
+}
