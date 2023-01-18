@@ -16,14 +16,14 @@
     justify-content: space-between;
 }
 
-.option1-btn {
+/* .option1-btn {
     margin: 30px 10px 0 10px;
     background: rgb(0, 163, 163);
     border: 1px solid cyan;
     box-shadow: 0 0 5px grey;
-    border-radius: 20px;
-    height: 30px;
-    width: 100px;
+    border-radius: 40px;
+    height: 40px;
+    width: 140px;
     transition: box-shadow 0.5s;
 }
 
@@ -32,17 +32,44 @@
     background: rgb(255, 0, 0);
     border: 1px solid rgb(250, 81, 81);
     box-shadow: 0 0 5px rgb(50, 50, 50, 0.6);
-    border-radius: 20px;
-    height: 30px;
-    width: 100px;
+    border-radius: 40px;
+    height: 40px;
+    width: 140px;
     transition: box-shadow 0.5s ;
+} */
+
+.pill {
+    /* background: rgb(255, 0, 0);
+    border: 1px solid rgb(250, 81, 81); */
+
+    margin: 30px 10px 0 10px;
+    box-shadow: 0 0 5px rgb(50, 50, 50, 0.6);
+    border-radius: 40px;
+    height: 40px;
+    width: 140px;
+    transition: box-shadow 0.5s ;
+    color: white;
 }
 
-.option1-btn:hover, .option2-btn:hover {
-    box-shadow: 0 0 10px rgb(255, 255, 255, 0.3);
+.blue {
+    background: rgb(0, 163, 163);
+    border: 1px solid cyan;
 }
 
-.option1-btn:active, .option2-btn:active {
+.red {
+    background: rgb(255, 0, 0);
+    border: 1px solid rgb(250, 81, 81);
+}
+
+.red:hover {
+    box-shadow: 0 0 10px rgb(255, 0, 0, 1);
+}
+
+.blue:hover {
+    box-shadow: 0 0 10px rgb(0, 163, 163, 1);
+}
+
+.blue:active, .red:active {
     padding-bottom: 5px;
 }
 

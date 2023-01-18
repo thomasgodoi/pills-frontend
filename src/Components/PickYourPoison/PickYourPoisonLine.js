@@ -4,16 +4,14 @@ export default function PickYourOptionLine() {
 
     const phrases = [
         "...So,",
-        "WYR:",
-        "Would you rather...",
         "I'm not good at starting conversations, but",
         "Yesterday I was at my church's cell group and this question was so good it left them speechless.",
         "Morpheus HIMSELF said: 'Pick red, it tastes like strawberry' but I don't know...",
         "I'm sorry for your little brother's death, but hear me out",
-        "Hey it's me, your therapist. Can you answer this question and send it to me? -Therapist",
-        "Bet Jay-Z's 99 problems aren't as difficult as this",
+        "Hey it's me, your therapist. Can you answer this question and send it to me? -Totally your therapist.",
+        "Bet Jay-Z's 99 problems aren't as difficult",
         "Choose your destiny, literally. ",
-        "You chose blue pill because you don't wanna see your mother die, I chose blue because I like blueberry flavour. We are not the same."
+        "You chose blue pill because you don't wanna see your mother die, I chose blue pill because I like blueberry flavour. We are not the same."
     ]
 
     // const phrases = [
@@ -30,12 +28,12 @@ export default function PickYourOptionLine() {
     // ]
 
     const getRNG = () => {
-        return Math.floor(Math.random() * (11 - 1) + 1);
+        return Math.floor(Math.random() * (9 - 1) + 1);
     }
 
     return (
-        <p style={{width:'600px'}}>
+        <p style={{width:'600px', height: "100px", display: "flex",  justifyContent: "center", alignItems: "center"}}>
             {phrases[getRNG()]}
         </p>
     )
-}
+}   
