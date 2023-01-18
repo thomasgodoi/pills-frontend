@@ -42,12 +42,12 @@ function handleTierColor(tier) {
         case "S+":
             return "gold"
 
-        case "S" || "A" || "B" || "C":
-            return "white"
-
-        case "D" || "E":
+        case "D":
             return "grey"
         
+        case "E":
+            return "grey"
+
         default:
             return "white";
     }
@@ -62,9 +62,6 @@ function handleTierShadow(tier) {
     switch(tier) {
         case "S+":
             return goldShadow;
-
-        case "S" || "A" || "B" || "C":
-            return whiteShadow;
 
         case "D" || "E":
             return silvershadow;
