@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import PickYourOptionLine from "./Components/PickYourPoison/PickYourPoisonLine";
+import PickYourPoisonLine from "./Components/PickYourPoison/PickYourPoisonLine";
 import Footer from "./Components/Footer/Footer";
 
 import Pill from "./Components/Pill/Pill";
@@ -24,9 +24,11 @@ export default function Homepage() {
     return (
         <div className="App">
             <body className="App-header">
-                <PickYourOptionLine />
-
-                <span style={{fontSize:'18px', fontStyle:"italic", textShadow:"0 0 3px rgb(255, 255, 255, 0.3)"}}>Would you rather:</span>
+                <div className="wyr-div">
+                    <span>
+                        Would You Rather:
+                    </span>
+                </div>
 
                 <div className="pills-div">
                     <div>
@@ -43,9 +45,10 @@ export default function Homepage() {
                     </div>
 
                 </div>
+                <PickYourPoisonLine />
             </body>
             <br/>
-            {/* <Footer /> */}
+            <Footer />
       </div>
     )
 }

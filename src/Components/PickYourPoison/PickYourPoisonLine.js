@@ -1,39 +1,30 @@
 import React from "react";
 
-export default function PickYourOptionLine() {
+import "../Styles/PickYourPoisonLine.css"
+
+export default function PickYourPoisonLine() {
 
     const phrases = [
-        "...So,",
-        "I'm not good at starting conversations, but",
-        "Yesterday I was at my church's cell group and this question was so good it left them speechless.",
+        "...So?",
+        "I know, I'm not good at starting conversations.",
+        "My church's cell group just couldn't answer this question.",
         "Morpheus HIMSELF said: 'Pick red, it tastes like strawberry' but I don't know...",
-        "I'm sorry for your little brother's death, but hear me out",
+        "I'm sorry for your little brother's death, but I really need you to answer this.",
         "Hey it's me, your therapist. Can you answer this question and send it to me? -Totally your therapist.",
-        "Bet Jay-Z's 99 problems aren't as difficult",
+        "Bet Jay-Z's 99 problems aren't as difficult as this.",
         "Choose your destiny, literally. ",
         "You chose blue pill because you don't wanna see your mother die, I chose blue pill because I like blueberry flavour. We are not the same."
     ]
-
-    // const phrases = [
-    //     "Header 1",
-    //     "Header 2",
-    //     "Header 3",
-    //     "Header 4",
-    //     "Header 5",
-    //     "Header 6",
-    //     "Header 7",
-    //     "Header 8",
-    //     "Header 9",
-    //     "Header 10"
-    // ]
 
     const getRNG = () => {
         return Math.floor(Math.random() * (9 - 1) + 1);
     }
 
     return (
-        <p style={{width:'600px', height: "100px", display: "flex",  justifyContent: "center", alignItems: "center"}}>
-            {phrases[getRNG()]}
-        </p>
+        <div className="pypl-div">
+            <p style={{width:'600px', display: "flex", justifyContent: "center", alignItems: "baseline", fontSize: "12px", marginTop: "50px", height:"50px"}}>
+                {phrases[getRNG()]}
+            </p>
+        </div>
     )
 }   
