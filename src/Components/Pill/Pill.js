@@ -1,13 +1,16 @@
-import React, { useEffect, useState, useRef } from "react";
+// /* eslint-disable */
+
+import React, { useEffect, useState } from "react";
 import { PerkDataService } from "../../Services/PerkDataService";
 // import PickStatistics from "../PickStatistics/PickStatistics";
 
-import '../Styles/Pills.css';
+import '../Styles/Pill.css';
 
 export default function LeftButton(props) {
     const [perks, setPerks] = useState([]);
     const [perkIdList, setPerkIdList] = useState([]);
-    const perkIdListRef = useRef(perkIdList);
+
+    // const [isStatsShowing, setIsStatsShowing] = useState(false);
 
     const cyan = "rgb(0, 255, 255)";
     const cyanShadow = "0 0 3px rgb(0, 255, 255, 0.6)";
@@ -20,43 +23,43 @@ export default function LeftButton(props) {
     }, [])
 
     async function getPerks() {
+        let arr =[]
         await PerkDataService.getPerks().then(response => {
+            response.data.forEach(el => {
+                arr.push(el.id)
+            })
+            setPerkIdList(arr);
             setPerks(response.data);
+
         })
     }
 
-    useEffect(() => {
-        function getPerkIdList() {
-            const arr =[];
-    
-            perks.forEach(perk => {
-                arr.push(perk.id);
-            });
-    
-            setPerkIdList(arr);
-        }
-
-        getPerkIdList()
-    }, [perks])
-
+    // useEffect(() => {
+    //     setIsStatsShowing(props.stats);
+    // }, [props.stats])
 
 
     useEffect(() => {
 
-        function handleWinnerPill() {
+        function handleWinnerPill(idList) {
             if(props.isWinner) {
-                PerkDataService.sendPerksScore(perkIdListRef, true);
+                PerkDataService.sendPerksScore(idList, true);
             }
 
             if(!props.isWinner) {
-                PerkDataService.sendPerksScore(perkIdListRef, false);
+                PerkDataService.sendPerksScore(idList, false);
             }
         }
 
-        if(perkIdListRef.length > 0) {
-            handleWinnerPill(perkIdListRef);
+        if(perkIdList.length > 0) {
+            handleWinnerPill(perkIdList);
         }
     }, [props.isWinner])
+
+    // function handleWinnerPill(blue, red) {
+    //     setBluePill(blue);
+    //     setRedPill(red);
+    // }
 
     return (
         <div style={{fontSize:'12px', textAlign:'center'}}>
@@ -74,6 +77,8 @@ export default function LeftButton(props) {
                 </div>
             )}
             </ul> */}
+                {/* <button onClick={() => console.log("perkIdListRef =>", perkIdListRef)}>perkIdListRef</button>
+                <button onClick={() => console.log("perkIdList =>", perkIdList)}>perkIdList</button> */}
 
         <table>
             {perks.map((el, key) => 
@@ -93,6 +98,18 @@ export default function LeftButton(props) {
                 </tbody>
             )}
             </table>
+            {/* <div style={{width:"100%", display:"flex", justifyContent:"center"}}>
+                <button className="pill redColor" onClick={() => handleWinnerPill(false, true)}><span>Take red pill</span></button>
+            </div>
+                <button className="show-stats-btn">Show stats</button> */}
+
+            {/* <div style={{background: "rgb(0, 0, 0, 0.4)", width: "100vw", height:"100vh", display: isStatsShowing ? "block" : "none"}}>
+                <div style={{background: "rgb(255, 255, 255)", width: "500px", height: "500px", color: "white"}}>
+                    <span> sei lá hehe xD</span>
+                    <span> sei lá hehe xD</span>
+                    <span> sei lá hehe xD</span>
+                </div>
+            </div> */}
         </div>
     )
 

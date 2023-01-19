@@ -39,41 +39,38 @@
 } */
 
 .pill {
-    /* background: rgb(255, 0, 0);
-    border: 1px solid rgb(250, 81, 81); */
-
     margin: 30px 10px 0 10px;
     box-shadow: 0 0 5px rgb(50, 50, 50, 0.6);
     border-radius: 40px;
     height: 40px;
     width: 140px;
+    cursor: pointer;
     transition: box-shadow 0.5s ;
     color: white;
 }
 
-.blue {
+.cyanColor {
     background: rgb(0, 163, 163);
     border: 1px solid cyan;
 }
 
-.red {
+.redColor {
     background: rgb(255, 0, 0);
     border: 1px solid rgb(250, 81, 81);
 }
 
-.red:hover {
+.redColor:hover {
     box-shadow: 0 0 10px rgb(255, 0, 0, 1);
 }
 
-.blue:hover {
+.cyanColor:hover {
     box-shadow: 0 0 10px rgb(0, 163, 163, 1);
 }
 
-.blue:active, .red:active {
+.cyanColor:active, .redColor:active {
     padding-bottom: 5px;
 }
 
-.option1-btn, .option2-btn span {
-    color: white;
-    text-shadow: 0 0 3px rgb(255, 255, 255, 0.2);
+td {
+    min-height: 20px;
 }

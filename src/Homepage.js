@@ -4,21 +4,17 @@ import Footer from "./Components/Footer/Footer";
 
 import Pill from "./Components/Pill/Pill";
 
-
 export default function Homepage() {
     const [bluePill, setBluePill] = useState(null);
     const [redPill, setRedPill] = useState(null);
 
-    function handleBluePillWins(){
-        console.log('blue pill wins!');
-        setBluePill(true);
-        setRedPill(false);
-    }
+    // const [showStatsBluePill, setShowStatsBluePill] = useState(false);
+    // const [showStatsRedPill, setShowStatsRedPill] = useState(false);
 
-    function handleRedPillWins() {
-        console.log('red pill wins!');
-        setRedPill(true);
-        setBluePill(false);
+    function handleWinnerPill(blue, red) {
+
+        setBluePill(blue);
+        setRedPill(red);
     }
 
     return (
@@ -29,21 +25,23 @@ export default function Homepage() {
                         Would You Rather:
                     </span>
                 </div>
-
                 <div className="pills-div">
                     <div>
-                        <Pill isWinner={bluePill}/>
+                        <Pill isWinner={bluePill}  />
                         <div style={{width:"100%", display:"flex", justifyContent:"center"}}>
-                            <button className="pill blue" onClick={handleBluePillWins}><span>Take blue pill</span></button>
+                            <button className="pill cyanColor" onClick={() => handleWinnerPill(true, false)}><span>Take blue pill</span></button>
                         </div>
+                        <button className="show-stats-btn">Show stats</button>
+
                     </div>
                     <div>
-                        <Pill isWinner={redPill}/>
+                        <Pill isWinner={redPill} />
                         <div style={{width:"100%", display:"flex", justifyContent:"center"}}>
-                            <button className="pill red" onClick={handleRedPillWins}><span>Take red pill</span></button>
+                            <button className="pill redColor" onClick={() => handleWinnerPill(false, true)}><span>Take red pill</span></button>
                         </div>
-                    </div>
+                            <button className="show-stats-btn">Show stats</button>
 
+                    </div>
                 </div>
                 <PickYourPoisonLine />
             </body>

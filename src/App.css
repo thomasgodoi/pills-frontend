@@ -3,6 +3,11 @@
   box-sizing: border-box;
 }
 
+body,html {
+  margin: 0;
+  padding: 0;
+}
+
 .App {
   text-align: center;
   background: rgb(30, 30, 30);
@@ -26,11 +31,7 @@
   justify-content: space-evenly;
   width: 100%;
   align-items: flex-end;
-}
-
-body,html {
-  margin: 0;
-  padding: 0;
+  z-index: 10;
 }
 
 .wyr-div {
@@ -42,6 +43,16 @@ body,html {
 
 .wyr-div span {
   font-size: 40px;
-  text-shadow: 0 0 3px rgb(255, 255, 255, 0.3);
-  font-family: 'Dancing Script', cursive;;
+  text-shadow: 0 0 10px rgb(255, 255, 255, 0.5);
+  font-family: 'Dancing Script', cursive;
+}
+
+.show-stats-btn {
+  border: none;
+  background: transparent;
+  color: white;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 11px;
 }
