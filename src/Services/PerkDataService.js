@@ -52,14 +52,15 @@ function getPerkHotStreak() {
     return axios.get(baseUrl + `/find-hot-streak`);
 }
 
-
-
 function handleTierColor(tier) {
     switch(tier) {
         case "S+":
             return "gold"
 
         case "D":
+            return "grey"
+
+        case "E":
             return "grey"
         
         case "E":
@@ -71,16 +72,18 @@ function handleTierColor(tier) {
 }
 
 function handleTierShadow(tier) {
-    const goldShadow = "0 0 3px rgb(255, 215, 0, 0.8)";
-    const whiteShadow = "0 0 3px rgb(255, 255, 255, 0.8)";
-    const silvershadow = "0 0 3px rgb(192, 192, 192, 0.8)";
-
+    const goldShadow = "0 0 3px rgb(255, 215, 0, 0.1)";
+    const whiteShadow = "0 0 3px rgb(255, 255, 255, 0.1)";
+    const silvershadow = "0 0 3px rgb(192, 192, 192, 0.1)";
 
     switch(tier) {
         case "S+":
             return goldShadow;
 
-        case "D" || "E":
+        case "D":
+            return silvershadow;
+
+        case "E":
             return silvershadow;
             
         default:

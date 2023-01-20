@@ -1,0 +1,13 @@
+.pypl-div span{
+    width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    font-size: 12px;
+    margin-top: 50px;
+    height:50px;
+    color: rgb(100 100 100);
+    font-size: 10px;
+    font-style: italic;
+    margin-bottom: 20px;
+}

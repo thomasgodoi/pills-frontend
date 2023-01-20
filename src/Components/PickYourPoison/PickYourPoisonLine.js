@@ -30,9 +30,7 @@ export default function PickYourPoisonLine() {
 
     return (
         <div className="pypl-div">
-            <p style={{width:'600px', display: "flex", justifyContent: "center", alignItems: "baseline", fontSize: "12px", marginTop: "50px", height:"50px"}}>
-                {phrase}
-            </p>
+            <span> {phrase} </span>
         </div>
     )
 }   

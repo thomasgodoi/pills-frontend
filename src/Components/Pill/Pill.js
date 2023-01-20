@@ -113,10 +113,11 @@ export default function LeftButton(props) {
                 )}
             </table>
 
-            <div onClick={() => hideStatsModal(false)} style={{background: "rgb(0, 0, 0, 0.4)", backdropFilter:"blur(2px)", width: "100vw", height:"100vh", display: isStatsShowing ? "block" : "none", position: "absolute", left:"50%", bottom:"50%", transform: "translate(-50%, 50%)"}}>
-                <div style={{background: "rgb(30, 30, 30)", width: "80vw", padding:"30px", color: "white", position:"inherit", left:"inherit", bottom:"inherit", transform:"inherit", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", borderRadius: "10px", boxShadow: "0 0 10px rgb(0, 0, 0, 0.8)"}}>
-                    
-                    <p>No, totally not nerdy stuff</p>
+            <div className="pill-stats" onClick={() => hideStatsModal(false)} style={{display: isStatsShowing ? "block" : "none"}}>
+                <div className="pill-stats-div">                    
+
+                    <p className="pill-stats-title">Pill Statistics</p>
+
                     
                     <table style={{width: "100%", borderCollapse: "collapse", borderLeft: "2px solid rgb(25,25,25)", borderRight: "2px solid rgb(25,25,25)"}}>
                         <thead>
@@ -131,7 +132,7 @@ export default function LeftButton(props) {
                         <tbody className="stats">
                             {perks.map((el, key) => 
                                 <tr key={key}>
-                                    <td style={{minWidth: "80px", padding:"3px 10px"}}>
+                                    <td>
                                         {el.description} 
                                         {el.additionalInfo !== null &&
                                             <sup>
@@ -139,13 +140,9 @@ export default function LeftButton(props) {
                                             </sup>
                                         }
                                     </td>
-                                    <td style={{minWidth: "80px", padding:"3px 10px"}}>
-                                        {el.timesWon}
-                                    </td>
-                                    <td style={{minWidth: "80px", padding:"3px 10px"}}>
-                                        {el.timesLost}
-                                    </td>
-                                    <td style={{minWidth: "80px", padding:"3px 10px"}}>
+                                    <td>{el.timesWon}</td>
+                                    <td>{el.timesLost}</td>
+                                    <td style={{color: PerkDataService.handleTierColor(el.tier), textShadow: PerkDataService.handleTierShadow(el.tier)}}>
                                         {el.tier}
                                     </td>                                    
                                 </tr>
@@ -153,31 +150,34 @@ export default function LeftButton(props) {
                         </tbody>
                     </table>
                     <div  className="list-hof">
-                        <p>Hall of Fame</p>
-
-
+                        <p className="pill-stats-title">Hall of Fame</p>
                         <ul>
                             <li>
-                                <b>STRONGEST:</b>
-                                    <div className="perk-hof-div">
-                                        <div>
-                                            <span>{perkMostWins.description}</span>
-                                            {perkMostWins.additionalInfo !== null &&
-                                                <sup>
-                                                    ({perkMostWins.additionalInfo})
-                                                </sup>
-                                            }
-                                        </div>
-                                        <div>
-                                            <span style={{marginLeft:"20px", display: "flex", alignItems: "center"}}>
-                                                <p style={{color:"red"}}>⇒ &nbsp; </p> {perkMostWins.timesWon}  wins</span>
-                                            <span></span>
-                                        </div>
-
+                                <b title="This is the most picked perk. Unlike billionaires, this perk actually worked its way to the top">
+                                    STRONGEST:
+                                </b>
+                                <div className="perk-hof-div">
+                                    <div>
+                                        <span>{perkMostWins.description}</span>
+                                        {perkMostWins.additionalInfo !== null &&
+                                            <sup title={perkMostWins.additionalInfo}>
+                                                Rules
+                                            </sup>
+                                        }
                                     </div>
+                                    <div>
+                                        <span style={{marginLeft:"20px", display: "flex", alignItems: "center"}}>
+                                            <span style={{color:"red"}}>⇒ &nbsp;
+                                            </span> {perkMostWins.timesWon}  wins
+                                        </span>
+                                        <span></span>
+                                    </div>
+                                </div>
                             </li>
                             <li>
-                                <b>WEAKEST:</b>
+                                <b title="This is the least picked perk.">
+                                    WEAKEST:
+                                </b>
                                 <div className="perk-hof-div">
                                     <div>
                                         <span>{perkMostLosses.description}</span>
@@ -189,13 +189,16 @@ export default function LeftButton(props) {
                                     </div>
                                     <div>
                                         <span style={{marginLeft:"20px", display: "flex", alignItems: "center"}}>
-                                            <p style={{color:"red"}}>⇒ &nbsp; </p> {perkMostLosses.timesLost}  losses</span>
-                                        <span></span>
+                                            <span style={{color:"red"}}>⇒ &nbsp; </span>
+                                            {perkMostLosses.timesLost}  losses
+                                        </span>
                                     </div>
                                 </div>
                             </li>                            
                             <li>
-                                <b>HOT STREAK:</b>
+                                <b title="This is the best perk in recent performance. +1 anytime when selected, -1 everytime when it isn't">
+                                    HOT STREAK:
+                                </b>
                                 <div className="perk-hof-div">
                                     <div>
                                         <span>{perkHotStreak.description}</span>
@@ -207,39 +210,17 @@ export default function LeftButton(props) {
                                     </div>
                                     <div>
                                         <span style={{marginLeft:"20px", display: "flex", alignItems: "center"}}>
-                                            <p style={{color:"red"}}>⇒ &nbsp; </p> {perkHotStreak.recentPerformance}  losses</span>
-                                        <span></span>
+                                            <span style={{color:"red"}}>⇒ &nbsp; </span>
+                                            {perkHotStreak.recentPerformance}  points
+                                        </span>
                                     </div>
                                 </div>
                             </li>
                         </ul>
-
-
-
                     </div>
+                    <span className="pill-stats-msg">No bro, this is totally not nerdy stuff, you're fine.</span>
                 </div>
             </div>
-                    {/* <table>
-                            <tbody>
-                                <tr>
-                                    {perks.map((el, key) => {
-                                        <td style={{textShadow: el.isPositive ? cyanShadow : redShadow, minWidth: "400px"}}>
-                                            <span style={{color: el.isPositive ? cyan : red}}>
-                                                {el.description} 
-                                                {el.additionalInfo !== null &&
-                                                    <sup style={{color:"white", textShadow: whiteShadow, marginLeft:"10px", cursor: "help"}} title={el.additionalInfo}>
-                                                        Rules
-                                                    </sup>
-                                                }
-                                                {el.timesWon}
-                                                {el.timesLost}
-                                                {el.tier}
-                                            </span>
-                                        </td>
-                                    })}
-                                </tr>
-                            </tbody>
-                        </table> */}
         </div>
     )
 

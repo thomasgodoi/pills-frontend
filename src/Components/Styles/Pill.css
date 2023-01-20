@@ -59,6 +59,11 @@
     border: 1px solid rgb(250, 81, 81);
 }
 
+.disabled {
+    background: rgb(90, 90, 90);
+    border: 1px solid rgb(110, 110, 110);
+}
+
 .redColor:hover {
     box-shadow: 0 0 10px rgb(255, 0, 0, 1);
 }
@@ -79,13 +84,49 @@ td {
     background-color: rgb(25, 25, 25);
 }
 
+.stats td {
+    min-width: 80px;
+    padding: 3px 10px;
+}
+
+.pill-stats {
+    background: rgb(0, 0, 0, 0.4);
+    backdrop-filter: blur(2px);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%, 50%);
+}
+
+.pill-stats-div {
+    background: rgb(30, 30, 30);
+    width: 80vw;
+    padding: 30p;
+    color: white;
+    position: inherit;
+    left: inherit;
+    bottom: inherit;
+    transform: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(0, 0, 0, 0.8);
+}
+
 .list-hof {
-    border: 1px solid red;
     width: 100%;
 }
 
 .list-hof ul {
-    list-style: none
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .perk-hof-div {
@@ -94,6 +135,7 @@ td {
     justify-content: center;
     height: 25px;
     margin-bottom: 20px;
+    width: 50vw;
 }
 
 .list-hof sup {
@@ -102,15 +144,29 @@ td {
     cursor: help;
 }
 
-.list-hof p {
+.pill-stats-title {
     font-family: 'Dancing Script', cursive;
     font-size: 22px;
+    text-shadow: 0 0 5px rgb(255 255 255 / 40%);
 }
 
 .list-hof b {
-    color: red;
+    color: rgb(255, 0, 0);
+    text-shadow: 0px 0px 3px rgb(255, 0, 0, .4);
+    cursor: help;
 }
 
 .list-hof li {
-    margin-top: 25px
+    margin-top: 10px;
+}
+
+.list-hof li:first-child {
+    margin-top: 0px
+}
+
+.pill-stats-msg {
+    color: rgb(100 100 100);
+    font-size: 10px;
+    font-style: italic;
+    margin-bottom: 20px;
 }

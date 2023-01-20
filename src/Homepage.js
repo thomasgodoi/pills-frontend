@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 import PickYourPoisonLine from "./Components/PickYourPoison/PickYourPoisonLine";
 import Footer from "./Components/Footer/Footer";
-import {PerkDataService} from "./Services/PerkDataService";
 
 import Pill from "./Components/Pill/Pill";
 
 export default function Homepage() {
     const [bluePill, setBluePill] = useState(null);
     const [redPill, setRedPill] = useState(null);
+    const [isBtnDisabled, setIsBtnDisabled] = useState(false);
 
     const [showStatsBluePill, setShowStatsBluePill] = useState(false);
     const [showStatsRedPill, setShowStatsRedPill] = useState(false);
 
     function handleWinnerPill(blue, red) {
+        setIsBtnDisabled(true);
+
         setBluePill(blue);
         setRedPill(red);
     }
@@ -41,24 +43,30 @@ export default function Homepage() {
                 <div className="pills-div">
                     <div>
                         <Pill isWinner={bluePill} stats={showStatsBluePill} hideStats={hideStatsBtn} />
-                        <div style={{width:"100%", display:"flex", justifyContent:"center"}}>
-                            <button className="pill cyanColor" onClick={() => handleWinnerPill(true, false)}><span>Take blue pill</span></button>
+                        <div className="pill-btn-div">
+                            <button disabled={isBtnDisabled} className={isBtnDisabled ? "pill disabled" : "pill cyanColor"} onClick={() => handleWinnerPill(true, false)}>
+                                {!isBtnDisabled &&
+                                    <span>Take blue pill</span>
+                                }
+                            </button>
                         </div>
                         <button className="show-stats-btn" onClick={() => handleShowStats(true, false)}>Show stats</button>
 
                     </div>
                     <div>
                         <Pill isWinner={redPill} stats={showStatsRedPill} hideStats={hideStatsBtn} />
-                        <div style={{width:"100%", display:"flex", justifyContent:"center"}}>
-                            <button className="pill redColor" onClick={() => handleWinnerPill(false, true)}><span>Take red pill</span></button>
+                        <div className="pill-btn-div">
+                            <button disabled={isBtnDisabled} className={isBtnDisabled ? "pill disabled" : "pill redColor"} onClick={() => handleWinnerPill(false, true)}>
+                                {!isBtnDisabled &&
+                                    <span>Take red pill</span>
+                                }
+                            </button>
                         </div>
                             <button className="show-stats-btn" onClick={() => handleShowStats(false, true)}><span>Show stats</span></button>
-
                     </div>
                 </div>
                 <PickYourPoisonLine />
             </div>
-            <br/>
             <Footer />
       </div>
     )
