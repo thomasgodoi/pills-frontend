@@ -8,6 +8,9 @@ export const PerkDataService = {
     getPositivePerks,
     getNegativePerks,
     sendPerksScore,
+    getPerkMostWins,
+    getPerkMostLosses,
+    getPerkHotStreak,
 
     handleTierColor,
     handleTierShadow
@@ -36,6 +39,20 @@ function getNegativePerks() {
 function sendPerksScore(perkList, isWinner) {
     return axios.put(baseUrl + `/add-score/${perkList}/${isWinner}`);
 }
+
+function getPerkMostWins() {
+    return axios.get(baseUrl + `/find-most-wins`);
+}
+
+function getPerkMostLosses() {
+    return axios.get(baseUrl + `/find-most-losses`);
+}
+
+function getPerkHotStreak() {
+    return axios.get(baseUrl + `/find-hot-streak`);
+}
+
+
 
 function handleTierColor(tier) {
     switch(tier) {

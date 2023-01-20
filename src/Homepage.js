@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PickYourPoisonLine from "./Components/PickYourPoison/PickYourPoisonLine";
 import Footer from "./Components/Footer/Footer";
+import {PerkDataService} from "./Services/PerkDataService";
 
 import Pill from "./Components/Pill/Pill";
 

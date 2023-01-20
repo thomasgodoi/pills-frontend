@@ -78,3 +78,39 @@ td {
 .stats tr:nth-child(even) {
     background-color: rgb(25, 25, 25);
 }
+
+.list-hof {
+    border: 1px solid red;
+    width: 100%;
+}
+
+.list-hof ul {
+    list-style: none
+}
+
+.perk-hof-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25px;
+    margin-bottom: 20px;
+}
+
+.list-hof sup {
+    color: grey;
+    margin-left: 10px;
+    cursor: help;
+}
+
+.list-hof p {
+    font-family: 'Dancing Script', cursive;
+    font-size: 22px;
+}
+
+.list-hof b {
+    color: red;
+}
+
+.list-hof li {
+    margin-top: 25px
+}

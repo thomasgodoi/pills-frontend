@@ -10,6 +10,9 @@ export default function LeftButton(props) {
     const [perks, setPerks] = useState([]);
     const [perkIdList, setPerkIdList] = useState([]);
 
+    const [perkMostWins, setPerkMostWins] = useState({});
+    const [perkMostLosses, setPerkMostLosses] = useState({});
+    const [perkHotStreak, setPerkHotStreak] = useState({});
 
     const cyan = "rgb(0, 255, 255)";
     const cyanShadow = "0 0 3px rgb(0, 255, 255, 0.6)";
@@ -36,6 +39,17 @@ export default function LeftButton(props) {
     const [isStatsShowing, setIsStatsShowing] = useState(false);
     useEffect(() => {
         setIsStatsShowing(props.stats);
+        PerkDataService.getPerkMostWins().then(response => {
+            setPerkMostWins(response.data)
+        })
+
+        PerkDataService.getPerkMostLosses().then(response => {
+            setPerkMostLosses(response.data)
+        })
+
+        PerkDataService.getPerkHotStreak().then(response => {
+            setPerkHotStreak(response.data)
+        })
     }, [props.stats])
 
 
@@ -79,8 +93,6 @@ export default function LeftButton(props) {
                 </div>
             )}
             </ul> */}
-                {/* <button onClick={() => console.log("perkIdListRef =>", perkIdListRef)}>perkIdListRef</button>
-                <button onClick={() => console.log("perkIdList =>", perkIdList)}>perkIdList</button> */}
 
             <table>
                 {perks.map((el, key) => 
@@ -140,23 +152,65 @@ export default function LeftButton(props) {
                             )}  
                         </tbody>
                     </table>
-                    <div style={{border:"1px solid red", width:"100%"}}>
-                        <p>Pills Hall of Fame</p>
+                    <div  className="list-hof">
+                        <p>Hall of Fame</p>
 
 
-                        <ul style={{listStyle:"none"}}>
+                        <ul>
                             <li>
-                                <b>MOST SUCCESSFULL:</b>
-                                <span>most successfull</span>
+                                <b>STRONGEST:</b>
+                                    <div className="perk-hof-div">
+                                        <div>
+                                            <span>{perkMostWins.description}</span>
+                                            {perkMostWins.additionalInfo !== null &&
+                                                <sup>
+                                                    ({perkMostWins.additionalInfo})
+                                                </sup>
+                                            }
+                                        </div>
+                                        <div>
+                                            <span style={{marginLeft:"20px", display: "flex", alignItems: "center"}}>
+                                                <p style={{color:"red"}}>⇒ &nbsp; </p> {perkMostWins.timesWon}  wins</span>
+                                            <span></span>
+                                        </div>
+
+                                    </div>
                             </li>
                             <li>
                                 <b>WEAKEST:</b>
-                                <span> weakest</span>
-                            </li>
-                            
+                                <div className="perk-hof-div">
+                                    <div>
+                                        <span>{perkMostLosses.description}</span>
+                                        {perkMostLosses.additionalInfo !== null &&
+                                            <sup>
+                                                ({perkMostLosses.additionalInfo})
+                                            </sup>
+                                        }
+                                    </div>
+                                    <div>
+                                        <span style={{marginLeft:"20px", display: "flex", alignItems: "center"}}>
+                                            <p style={{color:"red"}}>⇒ &nbsp; </p> {perkMostLosses.timesLost}  losses</span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </li>                            
                             <li>
                                 <b>HOT STREAK:</b>
-                                <span>hot streak</span>
+                                <div className="perk-hof-div">
+                                    <div>
+                                        <span>{perkHotStreak.description}</span>
+                                        {perkMostLosses.additionalInfo !== null &&
+                                            <sup>
+                                                ({perkHotStreak.additionalInfo})
+                                            </sup>
+                                        }
+                                    </div>
+                                    <div>
+                                        <span style={{marginLeft:"20px", display: "flex", alignItems: "center"}}>
+                                            <p style={{color:"red"}}>⇒ &nbsp; </p> {perkHotStreak.recentPerformance}  losses</span>
+                                        <span></span>
+                                    </div>
+                                </div>
                             </li>
                         </ul>
 
