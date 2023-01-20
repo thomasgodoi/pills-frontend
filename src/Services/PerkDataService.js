@@ -59,9 +59,6 @@ function handleTierColor(tier) {
 
         case "D":
             return "grey"
-
-        case "E":
-            return "grey"
         
         case "E":
             return "grey"
